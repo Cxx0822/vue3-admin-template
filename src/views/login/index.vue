@@ -15,13 +15,16 @@
         />
       </el-form-item>
 
+      <!-- password表单选项 -->
       <el-form-item prop="password">
+        <!-- password输入框 -->
         <el-input
           v-model="loginInfo.loginForm.password"
           placeholder="密码"
         />
       </el-form-item>
 
+      <!-- 登录按钮 -->
       <el-button
         type="primary"
         style="width:100%;margin-bottom:30px;font-size:18px"
