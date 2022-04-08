@@ -467,4 +467,5 @@ const handleLogin = (formEl: FormInstance | undefined) => {
 
 # 参考资料
 1. [Vite + Vue3 初体验 —— Vite 篇](https://www.jianshu.com/p/e3cb446ccde9)    
-
+2. [PanJiaChen/vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)    
+  
