@@ -25,6 +25,7 @@
     "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-vue": "^8.5.0",
     "sass": "^1.49.11",
+    "svg-sprite-loader": "^6.0.11",
     "typescript": "^4.5.4",
     "vite": "^2.9.0",
     "vue-tsc": "^0.29.8"

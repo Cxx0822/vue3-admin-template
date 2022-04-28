@@ -13,6 +13,9 @@ import 'element-plus/dist/index.css'
 import 'dayjs/locale/zh-cn' // 中文
 import locale from 'element-plus/lib/locale/lang/zh-cn' // 中文
 
+// 引入svg
+import svgIcon from '@/icons/index.vue'
+
 // 创建Vue3实例
 const app = createApp(App)
 
@@ -20,5 +23,7 @@ const app = createApp(App)
 app.use(router)
 // 使用Element UI Plus
 app.use(ElementPlus, { locale })
+// 注册svg组件
+app.component('svg-icon', svgIcon)
 // 挂载到根组件上
 app.mount('#app')

@@ -1,7 +1,8 @@
 <template>
   <div class="item-div">
     <!-- 图标/图片 + 标题 -->
-    <img v-if="props.icon" :src="getImageUrl(props.icon)">
+    <i v-if="(props.icon).includes('el-icon')" class="sub-el-icon"></i>
+    <svg-icon v-else :icon-class="props.icon"></svg-icon>
     <span>{{ props.title }}</span>
   </div>
 </template>
