@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 
 // 引入Vue App
 import App from './App.vue'
@@ -21,6 +22,8 @@ const app = createApp(App)
 
 // 使用路由
 app.use(router)
+// 使用Pinia
+app.use(createPinia())
 // 使用Element UI Plus
 app.use(ElementPlus, { locale })
 // 注册svg组件
