@@ -1,5 +1,12 @@
 <template>
   <div class="navbar">
+    <!-- 控制菜单栏的显示 -->
+    <hamburger
+      id="hamburger-container"
+      :is-active="sidebar.opened"
+      class="hamburger-container"
+      @toggleClick="toggleSideBar" />
+
     <!-- 右上角菜单栏 -->
     <div class="right-menu">
       <span class="right-menu-item">欢迎你 {{ loginInfo.username }}</span>
@@ -26,16 +33,30 @@
 </template>
 
 <script setup lang="ts">
+import Hamburger from '@/components/Hamburger/index.vue'
+
 import { ArrowDown } from '@element-plus/icons-vue'
-import { reactive } from 'vue'
+import { computed, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 
+import { useAppStore } from '@/store/app'
+
 const router = useRouter()
+
+const appStore = useAppStore()
 
 const loginInfo = reactive({
   username: window.localStorage.getItem('username')
 })
 
+const sidebar = computed(() => appStore.sidebar)
+
+// 侧边栏控制
+const toggleSideBar = () => {
+  appStore.toggleSideBar()
+}
+
+// 退出登录
 const logout = () => {
   window.localStorage.removeItem('username')
   router.push('/login')
@@ -53,6 +74,19 @@ const logout = () => {
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
+
+  .hamburger-container {
+    line-height: 46px;
+    height: 100%;
+    float: left;
+    cursor: pointer;
+    transition: background .3s;
+    -webkit-tap-highlight-color:transparent;
+
+    &:hover {
+      background: rgba(0, 0, 0, .025)
+    }
+  }
 
   .right-menu {
     float: right;

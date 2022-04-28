@@ -20,27 +20,17 @@ const props = defineProps({
     default: ''
   }
 })
-
-// 获取图片路径
-const getImageUrl = (icon:string):string => {
-  return '../../src/assets/' + icon + '.png'
-}
-
 </script>
 
 <style lang="scss" scoped>
 .item-div {
-  img {
-    width: 1.5em;
-    height: 1.5em;
-    vertical-align: -0.3em;
-    fill: currentColor;
-    overflow: hidden;
+  .sub-el-icon {
+    color: currentColor;
   }
 
   span {
     margin-left: 10px;
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 

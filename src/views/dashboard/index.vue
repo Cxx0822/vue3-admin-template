@@ -1,5 +1,5 @@
 <template>
-  <div style="padding:30px;">
+  <div>
     首页
   </div>
 </template>

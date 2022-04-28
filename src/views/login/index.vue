@@ -176,7 +176,7 @@ const handleLogin = (formEl: FormInstance | undefined) => {
       padding: 6px 5px 6px 15px;
       color: #000000;
       vertical-align: middle;
-      width: 30px;
+      width: 40px;
       display: inline-block;
     }
   }

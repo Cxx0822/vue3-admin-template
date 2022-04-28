@@ -17,7 +17,7 @@
   position: relative;
   overflow: hidden;
 
-  padding-top: 50px;
+  padding-top: 10px;
 }
 
 </style>

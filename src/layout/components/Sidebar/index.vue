@@ -1,11 +1,12 @@
 <template>
-  <div class="sidebar-container">
+  <div>
     <!-- 左上角图标 -->
-    <logo />
+    <logo :collapse="isCollapse"/>
     <!-- 菜单滚动条区域 -->
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <!-- 菜单栏 -->
       <el-menu
+        :collapse="isCollapse"
         :background-color="variables.menuBg"
         :text-color="variables.menuText"
         :unique-opened="false"
@@ -26,85 +27,12 @@ import SidebarItem from './SidebarItem.vue'
 import variables from '@/styles/variables.module.scss'
 
 import { constantRoutes } from '@/router/index'
+import { computed } from 'vue'
+
+import { useAppStore } from '@/store/app'
+
+const appStore = useAppStore()
+
+const isCollapse = computed(() => !appStore.sidebar.opened)
 
 </script>
-
-<style lang="scss">
-@import "@/styles/variables.module.scss";
-.sidebar-container {
-  // reset element-ui css
-  .horizontal-collapse-transition {
-    transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
-  }
-
-  .scrollbar-wrapper {
-    overflow-x: hidden !important;
-  }
-
-  .el-scrollbar__bar.is-vertical {
-    right: 0px;
-  }
-
-  .el-scrollbar {
-    height: 100%;
-  }
-
-  &.has-logo {
-    .el-scrollbar {
-      height: calc(100% - 50px);
-    }
-  }
-
-  .is-horizontal {
-    display: none;
-  }
-
-  a {
-    display: inline-block;
-    width: 100%;
-    overflow: hidden;
-    text-decoration:none
-  }
-
-  .svg-icon {
-    margin-right: 16px;
-  }
-
-  .sub-el-icon {
-    margin-right: 12px;
-    margin-left: -2px;
-  }
-
-  .el-menu {
-    border: none;
-    height: 100%;
-    width: 100% !important;
-  }
-
-  // menu hover
-  .submenu-title-noDropdown,
-  .el-sub-menu__title {
-    &:hover {
-      background-color: $menuHover !important;
-    }
-  }
-
-  .is-active>.el-sub-menu__title {
-    color: $subMenuActiveText !important;
-  }
-
-  & .nest-menu .el-sub-menu>.el-sub-menu__title,
-  & .el-sub-menu .el-menu-item {
-    min-width: $sideBarWidth !important;
-    background-color: $subMenuBg !important;
-
-    &:hover {
-      background-color: $subMenuHover !important;
-    }
-  }
-}
-</style>
-
-<style lang="scss" scoped>
-
-</style>

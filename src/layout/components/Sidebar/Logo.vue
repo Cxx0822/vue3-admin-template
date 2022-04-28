@@ -1,16 +1,29 @@
 <template>
-  <div class="sidebar-logo-container">
+  <div class="sidebar-logo-container" :class="{'collapse':collapse}">
     <!-- 跳转到首页 -->
-    <router-link key="collapse" class="sidebar-logo-link" to="/">
-      <!-- 图标 + 标题 -->
-      <img v-if="logoInfo.logo" :src="logoInfo.logo" class="sidebar-logo">
-      <h1 class="sidebar-title">{{ logoInfo.title }} </h1>
-    </router-link>
+    <transition name="sidebarLogoFade">
+      <!-- 根据collapse控制Logo组件，即是否显示标题 -->
+      <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
+        <img v-if="logoInfo.logo" :src="logoInfo.logo" class="sidebar-logo">
+        <h1 v-else class="sidebar-title">{{ logoInfo.title }} </h1>
+      </router-link>
+      <router-link v-else key="expand" class="sidebar-logo-link" to="/">
+        <img v-if="logoInfo.logo" :src="logoInfo.logo" class="sidebar-logo">
+        <h1 class="sidebar-title">{{ logoInfo.title }} </h1>
+      </router-link>
+    </transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { defineProps, reactive } from 'vue'
+
+defineProps({
+  collapse: {
+    type: Boolean,
+    require: true
+  }
+})
 
 const logoInfo = reactive({
   title: 'vue3 admin template',
@@ -21,6 +34,15 @@ const logoInfo = reactive({
 </script>
 
 <style lang="scss" scoped>
+// 动画样式
+.sidebarLogoFade-enter-active {
+  transition: opacity 1.5s;
+}
+
+.sidebarLogoFade-enter,
+.sidebarLogoFade-leave-to {
+  opacity: 0;
+}
 // 侧边栏样式
 .sidebar-logo-container {
   position: relative;
@@ -53,6 +75,12 @@ const logoInfo = reactive({
       font-size: 0.9vmax;
       font-family: Times New Roman;
       vertical-align: middle;
+    }
+  }
+
+  .collapse {
+    .sidebar-logo {
+      margin-right: 0px;
     }
   }
 }
