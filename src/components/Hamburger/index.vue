@@ -1,6 +1,6 @@
 <template>
   <div style="padding: 0 15px;" @click="toggleClick">
-    <!-- svg图标 -->
+    <!-- svg切换图标 -->
     <svg
       :class="{'is-active':props.isActive}"
       class="hamburger"

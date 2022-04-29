@@ -11,6 +11,7 @@
     "element-plus": "^2.1.7",
     "js-cookie": "^3.0.1",
     "path-browserify": "^1.0.1",
+    "path-to-regexp": "^6.2.0",
     "pinia": "^2.0.13",
     "vue": "^3.2.25",
     "vue-router": "^4.0.14"

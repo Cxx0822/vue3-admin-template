@@ -7,6 +7,8 @@
       class="hamburger-container"
       @toggleClick="toggleSideBar" />
 
+    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
+
     <!-- 右上角菜单栏 -->
     <div class="right-menu">
       <span class="right-menu-item">欢迎你 {{ loginInfo.username }}</span>
@@ -34,6 +36,7 @@
 
 <script setup lang="ts">
 import Hamburger from '@/components/Hamburger/index.vue'
+import Breadcrumb from '@/components/Breadcrumb/index.vue'
 
 import { ArrowDown } from '@element-plus/icons-vue'
 import { computed, reactive } from 'vue'
@@ -86,6 +89,10 @@ const logout = () => {
     &:hover {
       background: rgba(0, 0, 0, .025)
     }
+  }
+
+  .breadcrumb-container {
+    float: left;
   }
 
   .right-menu {
