@@ -9,6 +9,7 @@
       <div>
         <!-- 导航栏 -->
         <navbar />
+        <tags-view/>
       </div>
 
       <!-- 页面主体区域 -->
@@ -26,6 +27,7 @@ import AppMain from './components/AppMain.vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar/index.vue'
 import Footerbar from './components/Footerbar.vue'
+import TagsView from './components/TagsView/index.vue'
 
 import { computed } from 'vue'
 import { useAppStore } from '@/store/app'

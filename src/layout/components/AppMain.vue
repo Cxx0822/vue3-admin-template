@@ -11,8 +11,8 @@
 
 <style lang="scss" scoped>
 .app-main {
-  /* 总高度 - Navbar - Footerbar */
-  min-height: calc(100vh - 50px - 50px);
+  /* 总高度 - Navbar - TagsView - Footerbar */
+  min-height: calc(100vh - 50px - 50px - 34px);
   width: 100%;
   position: relative;
   overflow: hidden;
